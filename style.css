@@ -1,0 +1,213 @@
+@font-face {
+    font-family: starwarsfont;
+    src: url(starjedi/Starjedi.ttf);
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing:content-box;
+}
+
+html {
+  height:100vh;
+}
+
+body {
+  font-family:starwarsfont;
+  line-height:1.5;
+  color:white;
+  background-color:lightgray;
+  display:flex;
+  flex-direction:column;
+  margin:0;
+  height:100vh;
+  background-image: url("background.gif");
+  background-attachment:fixed;
+}
+
+a,
+a:link,
+a:hover,
+a:visited {
+  color:gold;
+  text-decoration:none;
+}
+
+h1,
+h2,
+h3 {
+  margin:0.1rem;
+  font-weight:bold;
+}
+
+header,
+footer {
+  color:black;
+  background-color:lightgray;
+}
+
+body>header,
+body>footer {
+  padding-left:1rem;
+  padding-right:0.1rem;
+}
+
+body>header,
+body>footer {
+  padding-top:0.1rem;
+  padding-bottom:0.1rem;
+}
+
+body>header {
+  border-bottom:3px solid gold;
+}
+
+main {
+  flex-grow:1;
+  overflow:auto;
+  //overflow-x:hidden;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+body>footer {
+  border-top:3px solid gold;
+}
+
+.person {
+  width:calc(50vw - 3.6rem);
+  margin:1.5rem;
+  background-color: rgba(0,0,0,0.7);
+  border:1px solid gold;
+  border-radius:0.5rem;
+  overflow: hidden;
+}
+
+.person>header,
+.person>div {
+  padding:0.1rem 1rem;
+}
+
+.person>header {
+  border-bottom:3px solid gold;
+}
+
+.person ul {
+  padding:3rem;
+}
+
+.person li {
+  list-style-type : none;
+  display:flex;
+  padding:0.2rem;
+}
+
+.person .label {
+  flex-grow:1;
+  width:20vw;
+}
+
+.person .gender {
+  color:gray;
+}
+
+.person .value {
+  color:lightblue;
+}
+
+@keyframes falcon-left-right {
+    from{right: 0em;}
+    to{right: 120em;}
+}
+@keyframes falcon-opacity {
+    0%{opacity: 0;}
+    10%{opacity: 1;}
+    50%{opacity: 1;}
+    55%{opacity: 0;}
+    100%{opacity: 0;}
+}
+
+#falcon{
+  position: absolute;
+  //z-index: 1;
+  top: 0em;
+  right: 4em;
+  opacity: .9;
+  width:120px;
+  height: 90px;
+  background:url(mileniumfalcon.png) no-repeat;
+  background-size: 7rem;
+  animation: falcon-left-right 7s infinite ease-in-out,falcon-opacity 7s infinite linear;
+}
+
+/* -------------------------------- */
+
+.modal,
+.modal>.underlay,
+.modal>.body {
+  position: absolute;
+}
+
+.modal,
+.modal>.underlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  height: 0;
+  z-index: 10;
+  overflow: hidden;
+  transition: height 300ms ease;
+}
+
+.modal.open {
+  height: 100%;
+}
+
+.modal>.underlay {
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+.modal>.body {
+  position: relative;
+  top: 20rem;
+  left: 25vw;
+  z-index: 15;
+  width: 50vw;
+}
+
+.modal .controls {
+  z-index: 20;
+
+}
+.modal .controls button{
+  background:none;
+  border:1px solid black;
+  box-shadow: 5px 5px 5px #888888;
+  font-size:2em;
+  background-color: gold;
+  color:blue;
+}
+.modal .content h1{
+  padding: 0rem 3rem;
+  font-size: 30px;
+  border:1px solid gold; 
+  border-bottom:3px solid gold;
+}
+.modal .content {
+  border:1px solid gold;
+  border-bottom:3px solid gold; 
+  padding: 0.5rem 3rem;
+  z-index: 17;
+  background-color: lightgray;
+  color:black;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 2rem;
+}
